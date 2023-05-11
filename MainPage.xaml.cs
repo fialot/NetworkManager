@@ -1,4 +1,5 @@
-﻿namespace NetworkManager;
+﻿
+namespace NetworkManager;
 
 public partial class MainPage : ContentPage
 {
@@ -9,16 +10,30 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    private void OnApplyClicked(object sender, EventArgs e)
+    {
+        count++;
 
-		if (count == 1)
+		
+
+        /*if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
 		else
 			CounterBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		SemanticScreenReader.Announce(CounterBtn.Text);*/
+    }
+
+    private void OnCounterClicked(object sender, EventArgs e)
+	{
+		count++;
+
+		/*if (count == 1)
+			CounterBtn.Text = $"Clicked {count} time";
+		else
+			CounterBtn.Text = $"Clicked {count} times";
+
+		SemanticScreenReader.Announce(CounterBtn.Text);*/
 	}
 }
 
