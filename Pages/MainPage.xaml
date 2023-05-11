@@ -25,20 +25,22 @@
 
                 <Picker
                     x:Name="txtProfile"
-                    HorizontalOptions="Fill" />
+                    HorizontalOptions="Fill"
+                    SelectedIndexChanged="Profile_Changed"
+                    />
                 
                 <Button 
                     x:Name="btnSaveProfile"
                     Text="Save"
                     SemanticProperties.Hint="Save profile"
-                    Clicked="OnCounterClicked"
+                    Clicked="OnSaveProfileClicked"
                     HorizontalOptions="End" />
                 
                 <Button 
                     x:Name="btnDeleteProfile"
                     Text="Delete"
                     SemanticProperties.Hint="Delete profile"
-                    Clicked="OnCounterClicked"
+                    Clicked="OnDeleteProfileClicked"
                     HorizontalOptions="End" />
                 
 
@@ -55,13 +57,15 @@
                 FontSize="Subtitle"
                 HorizontalOptions="Start" />
 
-                <Picker />
+                <Picker
+                    x:Name="txtInterface"
+                    HorizontalOptions="Fill" />
 
                 <Button 
                      x:Name="btnInterfaceRefresh"
                     Text="Refresh"
                     SemanticProperties.Hint="Refresh interface"
-                    Clicked="OnCounterClicked"
+                    Clicked="OnRefreshInterfaceClicked"
                     HorizontalOptions="Center" />
 
             </HorizontalStackLayout>
@@ -75,27 +79,25 @@
 
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Padding="0,0">
                         <CheckBox x:Name="chbSetIP" IsChecked="True"/>
-                        <Label Text="Set IP" FontSize="Subtitle"/>
+                        <Label Text="Set IP"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0">
-                        <RadioButton GroupName="IpType" IsChecked="True" />
-                        <Label Text="DHCP" FontSize="Subtitle"/>
+                        <RadioButton x:Name="rbIP" GroupName="IpType" Content="DHCP" IsChecked="True" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0">
-                        <RadioButton GroupName="IpType" />
-                        <Label Text="Static" FontSize="Subtitle"/>
+                        <RadioButton  x:Name="rbIPStatic" GroupName="IpType" Content="Static"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Spacing="25" Padding="30,0">
-                        <Label Text="IP address:" FontSize="Subtitle"/>
-                        <Editor Text="192.168.1.10" />
+                        <Label Text="IP address:" />
+                        <Entry x:Name="txtIP" Text="192.168.1.10" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Spacing="25" Padding="30,0">
-                        <Label Text="Mask:" FontSize="Subtitle"/>
-                        <Editor Text="255.255.255.0" />
+                        <Label Text="Mask:" />
+                        <Entry x:Name="txtMask" Text="255.255.255.0" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Spacing="25" Padding="30,0">
-                        <Label Text="Gateway:" FontSize="Subtitle"/>
-                        <Editor Text="192.168.1.1" />
+                        <Label Text="Gateway:"/>
+                        <Entry x:Name="txtGateway" Text="192.168.1.1" />
                     </HorizontalStackLayout>
                     
                 </VerticalStackLayout>
@@ -109,23 +111,21 @@
 
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center">
                         <CheckBox x:Name="chbSetDNS" IsChecked="True"/>
-                        <Label Text="Set DNS" FontSize="Subtitle"/>
+                        <Label Text="Set DNS"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0">
-                        <RadioButton GroupName="DnsType" IsChecked="True" />
-                        <Label Text="DHCP" FontSize="Subtitle"/>
+                        <RadioButton x:Name="rbDNS" GroupName="DnsType" Content="DHCP" IsChecked="True" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Padding="30,0">
-                        <RadioButton GroupName="DnsType" />
-                        <Label Text="Static" FontSize="Subtitle"/>
+                        <RadioButton x:Name="rbDNSStatic" GroupName="DnsType" Content="Static" Padding="30,0"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Spacing="25" Padding="30,0">
-                        <Label Text="DNS 1:" FontSize="Subtitle"/>
-                        <Editor Text="192.168.1.10" />
+                        <Label Text="DNS 1:"/>
+                        <Entry x:Name="txtDNS1" Text="192.168.1.10" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Spacing="25" Padding="30,0">
-                        <Label Text="DNS 2:" FontSize="Subtitle"/>
-                        <Editor Text="255.255.255.0" />
+                        <Label Text="DNS 2:" />
+                        <Entry x:Name="txtDNS2" Text="255.255.255.0" />
                     </HorizontalStackLayout>
 
                 </VerticalStackLayout>
