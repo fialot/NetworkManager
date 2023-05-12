@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+//using Network;
 
 namespace NetworkManager
 {
@@ -95,7 +96,8 @@ namespace NetworkManager
             {
                 // ----- Find network adapter -----
                 string description = adapter["Description"] as string;
-                if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                //if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (description.IndexOf(netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
                 {
                     findAdapter = true;
                     // ----- Setting a dynamic IP address -----
@@ -129,7 +131,8 @@ namespace NetworkManager
             {
                 // ----- Find network adapter -----
                 string description = adapter["Description"] as string;
-                if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                //if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (description.IndexOf(netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
                 {
                     findAdapter = true;
                     // ----- Set DefaultGateway -----
@@ -166,7 +169,8 @@ namespace NetworkManager
             {
                 // ----- Find network adapter -----
                 string description = adapter["Description"] as string;
-                if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                //if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (description.IndexOf(netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
                 {
                     findAdapter = true;
                     // ----- Setting a DNS -----
@@ -198,8 +202,9 @@ namespace NetworkManager
             {
                 // ----- Find network adapter -----
                 string description = adapter["Description"] as string;
-                if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
-                {
+                //if (string.Compare(description, netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                if (description.IndexOf(netInterface, StringComparison.InvariantCultureIgnoreCase) == 0)
+                    {
                     // ----- Setting a WINS -----
                     ManagementBaseObject setWINS;
                     ManagementBaseObject wins =
@@ -225,8 +230,15 @@ namespace NetworkManager
                     string description = adapter["Description"] as string;
                     //string caption = adapter["Caption"] as string;
 
-                    if (!(description.Contains("Linux USB Ethernet") || description.Contains("VirtualBox")))
+                    if (!(description.Contains("VirtualBox"))) //description.Contains("Linux USB Ethernet") ||
                     {
+                        // ----- remove end number -----
+                        var split = description.Split(new string[] { "#" }, StringSplitOptions.None);
+                        if (split.Length == 2)
+                        {
+                            description = split[0].Trim();
+                        }
+
                         ifaceList.Add(description);
                     }
 
@@ -258,7 +270,7 @@ namespace NetworkManager
                         && adapter.NetworkInterfaceType != NetworkInterfaceType.Loopback
                         && adapter.NetworkInterfaceType != NetworkInterfaceType.Tunnel
                         && adapter.NetworkInterfaceType != NetworkInterfaceType.Unknown
-                        && !adapter.Description.Contains("Linux USB Ethernet")
+                        //&& !adapter.Description.Contains("Linux USB Ethernet")
                         && !adapter.Description.Contains("VirtualBox"))
                     {
                         if (adapter.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)

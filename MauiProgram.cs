@@ -31,7 +31,7 @@ public static class MauiProgram
 
 #if WINDOWS
         builder.Services.AddSingleton<ITrayService, NetworkManager.Platforms.Windows.TrayService>();
-		//builder.Services.AddSingleton<INotificationService, NetworkManager.Platforms.Windows.NotificationService>();
+		builder.Services.AddSingleton<INotificationService, NetworkManager.Platforms.Windows.NotificationService>();
 #endif
 
         builder.Services.AddSingleton<MainPage>();

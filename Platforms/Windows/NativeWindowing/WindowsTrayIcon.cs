@@ -21,7 +21,7 @@ namespace Hardcodet.Wpf.TaskbarNotification.Interop
 
         public Action LeftClick { get; set; }
         public Action RightClick { get; set; }
-
+        public Action DoubleClick { get; set; }
 
         public bool IsTaskbarIconCreated { get; private set; }
 
@@ -54,7 +54,11 @@ namespace Hardcodet.Wpf.TaskbarNotification.Interop
 
 		private void MessageSink_MouseEventReceived(MouseEvent obj)
 		{
-			if (obj == MouseEvent.IconLeftMouseUp)
+            if (obj == MouseEvent.IconDoubleClick)
+            {
+                DoubleClick?.Invoke();
+            }
+            else if (obj == MouseEvent.IconLeftMouseUp)
 			{
                 LeftClick?.Invoke();
 			} else if (obj == MouseEvent.IconRightMouseUp)

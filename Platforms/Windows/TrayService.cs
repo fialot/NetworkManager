@@ -8,14 +8,24 @@ public class TrayService : ITrayService
 {
     WindowsTrayIcon tray;
 
-    public Action ClickHandler { get; set; }
+    public Action LeftClickHandler { get; set; }
+    public Action RightClickHandler { get; set; }
+    public Action DoubleClickHandler { get; set; }
 
     public void Initialize()
     {
-        tray = new WindowsTrayIcon("Platforms/Windows/trayicon.ico");
+        tray = new WindowsTrayIcon("lan.ico");
         tray.LeftClick = () => {
             WindowExtensions.BringToFront();
-            ClickHandler?.Invoke();
+            LeftClickHandler?.Invoke();
+        };
+        tray.RightClick = () => {
+            WindowExtensions.BringToFront();
+            RightClickHandler?.Invoke();
+        };
+        tray.DoubleClick = () => {
+            WindowExtensions.BringToFront();
+            DoubleClickHandler?.Invoke();
         };
     }
 }

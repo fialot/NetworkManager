@@ -1,6 +1,8 @@
 ﻿
 //using CoreFoundation;
 //using CoreGraphics;
+using Microsoft.Extensions.DependencyInjection;
+using NetworkManager.Services;
 using System;
 
 namespace NetworkManager;
@@ -15,7 +17,6 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
         this.Loaded += MainPage_Loaded;
         this.Unloaded += MainPage_Unloaded;
-
     }
 
 
@@ -23,10 +24,70 @@ public partial class MainPage : ContentPage
     {
         RefreshProfiles();
         RefreshInterfaces();
+        SetupTrayIcon();
     }
     private void MainPage_Unloaded(object sender, EventArgs e)
     {
         IPdev.Save();
+    }
+
+
+    private void CreateTrayMenu()
+    {
+        var trayService = ServiceProvider.GetService<ITrayService>();
+
+        if (trayService != null)
+        {
+
+        }
+
+
+        MenuFlyout menu = new MenuFlyout();
+        MenuFlyoutItem item = new MenuFlyoutItem();
+        item.Text = "test";
+        menu.Add(item);
+
+        //FlyoutBase.SetContextFlyout(trayService, menu);
+    }
+
+    private void HideWindow()
+    {
+#if WINDOWS
+        var mauiWindow = App.Current.Windows.First();
+        var nativeWindow = mauiWindow.Handler.PlatformView;
+        IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(nativeWindow);
+
+        PInvoke.User32.ShowWindow(windowHandle, PInvoke.User32.WindowShowStyle.SW_HIDE);
+#endif
+    }
+
+    private void RestoreWindow()
+    {
+#if WINDOWS
+        var mauiWindow = App.Current.Windows.First();
+        var nativeWindow = mauiWindow.Handler.PlatformView;
+        IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(nativeWindow);
+
+        PInvoke.User32.ShowWindow(windowHandle, PInvoke.User32.WindowShowStyle.SW_RESTORE);
+#endif
+
+
+    }
+
+
+    private void SetupTrayIcon()
+    {
+        var trayService = ServiceProvider.GetService<ITrayService>();
+
+        if (trayService != null)
+        {
+            trayService.Initialize();
+            /*trayService.LeftClickHandler = () =>
+                ServiceProvider.GetService<INotificationService>()
+                    ?.ShowNotification("Test", "FDF");*/
+            trayService.RightClickHandler = () => CreateTrayMenu();
+            trayService.DoubleClickHandler = () => RestoreWindow();
+        }
     }
 
     private void Profile_Changed(object sender, EventArgs e)
