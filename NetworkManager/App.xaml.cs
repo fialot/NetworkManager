@@ -12,6 +12,7 @@ using NetworkManager.Notifications;
 using NetworkManager.Services;
 using NetworkManager.ViewModels;
 using NetworkManager.Views;
+using H.NotifyIcon;
 
 namespace NetworkManager;
 
@@ -98,6 +99,9 @@ public partial class App : Application
         base.OnLaunched(args);
 
         //App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
+
+        TaskbarIcon tryIcon = new TaskbarIcon();
+        
 
         await App.GetService<IActivationService>().ActivateAsync(args);
     }
