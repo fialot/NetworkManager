@@ -21,5 +21,6 @@
         IconSource="/Resources/Images/lan.ico"
         MenuActivation="LeftOrRightClick"
         PopupActivation="DoubleClick"
+        
         />
 </windowex:WindowEx>
