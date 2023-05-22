@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "NetworkManager (Unpackaged)": {
+        "commandName": "Project"
+      },
+      "NetworkManager (Package)": {
+        "commandName": "MsixPackage"
+      }
+    }
+}
