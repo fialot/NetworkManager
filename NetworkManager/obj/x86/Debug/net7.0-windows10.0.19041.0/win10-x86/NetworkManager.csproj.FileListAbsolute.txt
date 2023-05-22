@@ -1505,13 +1505,3 @@ C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net
 C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\qualifiers.txt
 C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\qualifiers.txt.intermediate
 C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\MultipleQualifiersPerDimensionFound.txt
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridDetailPage.g.i.cs
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridDetailPage.g.cs
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridPage.g.i.cs
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridPage.g.cs
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridDetailPage.xaml
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridPage.xaml
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridDetailPage.xbf
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\obj\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridPage.xbf
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\bin\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridDetailPage.xbf
-C:\Projekty\Software\C#\#Private\NetworkManager\NetworkManager\bin\x86\Debug\net7.0-windows10.0.19041.0\win10-x86\Views\ContentGridPage.xbf
