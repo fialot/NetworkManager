@@ -21,11 +21,10 @@
         ToolTipText="ToolTip"
         IconSource="/Resources/Images/lan.ico"
         MenuActivation="LeftOrRightClick"
-        PopupActivation="DoubleClick"
        
         >
         <tb:TaskbarIcon.ContextFlyout>
-            <MenuFlyout AreOpenCloseAnimationsEnabled="False">
+            <MenuFlyout x:Name="tryMenu" AreOpenCloseAnimationsEnabled="False">
                 <MenuFlyoutItem Command="{x:Bind ShowHideWindowCommand}" Text="Show/Hide Window" />
                 <MenuFlyoutSeparator />
                 <MenuFlyoutItem Command="{x:Bind ExitApplicationCommand}" Text="Exit" />

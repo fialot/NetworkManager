@@ -22,7 +22,7 @@ namespace NetworkManager
         public IPwork(string Path)
         {
             path = Path;
-            IPlist = loadIPlist(path);
+            IPlist = LoadIPlist(path);
 
         }
 
@@ -34,6 +34,21 @@ namespace NetworkManager
         public  List<IpSetting> GetList()
         {
             return IPlist;
+        }
+
+        public IpSetting GetProfile(int index)
+        {
+            if (index < IPlist.Count && index >= 0)
+            {
+                return IPlist[index];
+            }
+
+            return new IpSetting();
+        }
+
+        public IpSetting GetProfile(string name)
+        {
+            return GetProfile(GetProfileIndex(name));
         }
 
         public int GetProfileIndex(string name)
@@ -105,7 +120,13 @@ namespace NetworkManager
             return list;
         }
 
-        public List<IpSetting> loadIPlist(string path)
+        public List<IpSetting> LoadIPlist()
+        {
+            IPlist = LoadIPlist(path);
+            return IPlist;
+        }
+
+        public List<IpSetting> LoadIPlist(string path)
         {
             List<IpSetting> list = new List<IpSetting>();
 
