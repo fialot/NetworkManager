@@ -13,3 +13,5 @@ WinUI 3 Network manager for easily configuring IPv4 addresses.
 
 - Service settings
 - GUI
+- Add Double clik on tray icon
+- Run app only once
