@@ -64,7 +64,7 @@ public sealed partial class MainPage : Page
         {
             if (!(rbIpDHCP.IsChecked ?? false))
             {
-                if (!IPv4.ValidateIP(txtIP.Text) || IPv4.ValidateIP(txtMask.Text) || (txtGateway.Text != "" && IPv4.ValidateIP(txtGateway.Text)))
+                if (!IPv4.ValidateIP(txtIP.Text) || !IPv4.ValidateIP(txtMask.Text) || (txtGateway.Text != "" && !IPv4.ValidateIP(txtGateway.Text)))
                 {
                     validIp = false;
                 }
@@ -74,7 +74,7 @@ public sealed partial class MainPage : Page
         {
             if (!(rbDnsAuto.IsChecked ?? false))
             {
-                if (!IPv4.ValidateIP(txtDNS1.Text) || (txtDNS2.Text != "" && IPv4.ValidateIP(txtDNS2.Text)))
+                if (!IPv4.ValidateIP(txtDNS1.Text) || (txtDNS2.Text != "" && !IPv4.ValidateIP(txtDNS2.Text)))
                 {
                     validIp = false;
                 }
